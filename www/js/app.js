@@ -38,10 +38,10 @@ function createDialog() {
 	//here's a simple example
       
 	navigator.notification.confirm(
-    	'What do you think of this dialog?',  // message
+    	'Are you feeling hungry?',  // message
         dialogDismissed,         // callback
-        'An example dialog!',            // title
-        ['Awesome!', 'Sucks']                  // buttons
+        'Health check!!',            // title
+        ["Starving!", "Nope - I\'m good."]                  // buttons
     );
 
 }
@@ -50,9 +50,19 @@ function createDialog() {
         	
 function dialogDismissed(buttonIndex) {
 	
-	if(buttonIndex==1) new Toast({content: "You're easily pleased", duration: 3000});
-   	else if(buttonIndex==2) new Toast({content: 'It is rather boring.', duration: 3000});
+	if(buttonIndex==1) {
+        new Toast({content: "You're like a Diva when you're hungry!", duration: 3000});
+        window.setTimeout(delayDialog,3000);
+    } else if (buttonIndex==2) {
+        new Toast({content: 'Awsome!!!', duration: 3000});
+    }
 
+}
+
+function delayDialog() {
+    
+    new Toast({content: "Seriously - have a Snickers!", duration: 3000});
+    
 }
 
    
