@@ -25,20 +25,28 @@ document.addEventListener("app.Ready", onAppReady, false) ;
 
 // Added Cordova friendly 'deviceready' listener for notifications to avoid question marks about xdk's 'app.Ready' approach
 document.addEventListener('deviceready', function () {
-                cordova.plugins.notification.local.on('schedule', function (notification) {
-                    createMessage('scheduled: ' + notification.id, 1000);
-                });
-                cordova.plugins.notification.local.on('update', function (notification) {
-                    createMessage('updated: ' + notification.id, 1000);
-                });
-                cordova.plugins.notification.local.on('trigger', function (notification) {
-                    createMessage('triggered: ' + notification.id, 1000);
-                });
-                cordova.plugins.notification.local.on('click', function (notification) {
-                    createMessage('clicked: ' + notification.id, 1000);
-                });
+    
+ // >>> NOTE <<<
+    // (Android) THESE 3 LISTENERS CAN WORK RUNNING APP OVER USB 'Run My App'
+    cordova.plugins.notification.local.on('schedule', function (notification) {
+        createMessage('scheduled: ' + notification.id, 1000);
+    });
+    
+    cordova.plugins.notification.local.on('update', function (notification) {
+        createMessage('updated: ' + notification.id, 1000);
+    });
+    
+    cordova.plugins.notification.local.on('trigger', function (notification) {
+        createMessage('triggered: ' + notification.id, 1000);
+    });
+    
+// >>> NOTE <<<
+    // (Android) THIS ONLY WORKS IF PROJECT BUILT AND APK INSTALLED ON PHONE - WILL CRASH APP WHEN USING USB TESTING
+    cordova.plugins.notification.local.on('click', function (notification) {
+        createMessage('clicked: ' + notification.id, 1000);
+    });
 
-            }, false);
+}, false);
 
 
 function createMessage(message, time){

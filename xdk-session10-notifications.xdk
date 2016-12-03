@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-project-lite/sample.zip",
       "projectGuid": "46f91373-2d0a-4d76-8e1a-3647edc07206",
-      "lastModifiedDate": 1480785940659,
+      "lastModifiedDate": 1480790143080,
       "creationDate": 1480776770494
     },
     "XDK-app-designer": "false",
@@ -166,7 +166,7 @@
         "isActive_": true,
         "certificateId_": "jmCQNcErUkOCV-jSBlbhRw2",
         "appName_": "Notifications",
-        "appID_": "xdk.intel.cordova.template.lite",
+        "appID_": "xdk.intel.cordova.notifications",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -191,7 +191,7 @@
         "crosswalkVersion_": "19",
         "appVersion_": "0.0.1",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
-        "appAuthor_": "Intel XDK",
+        "appAuthor_": "Chris Blythe",
         "appVersionCode_": "1",
         "signed_": true
       },
