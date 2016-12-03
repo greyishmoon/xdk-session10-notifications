@@ -4,7 +4,7 @@ function onAppReady() {
     }
     
     $('#messageButton1').on('click', function() {
-		createMessage('Hello there!!!', 4000);
+		createMessage('Hello there!', 4000);
 	});
     
     $('#messageButton2').on('click', function() {
@@ -22,6 +22,23 @@ function onAppReady() {
     
 }
 document.addEventListener("app.Ready", onAppReady, false) ;
+
+// Added Cordova friendly 'deviceready' listener for notifications to avoid question marks about xdk's 'app.Ready' approach
+document.addEventListener('deviceready', function () {
+                cordova.plugins.notification.local.on('schedule', function (notification) {
+                    createMessage('scheduled: ' + notification.id, 1000);
+                });
+                cordova.plugins.notification.local.on('update', function (notification) {
+                    createMessage('updated: ' + notification.id, 1000);
+                });
+                cordova.plugins.notification.local.on('trigger', function (notification) {
+                    createMessage('triggered: ' + notification.id, 1000);
+                });
+                cordova.plugins.notification.local.on('click', function (notification) {
+                    createMessage('clicked: ' + notification.id, 1000);
+                });
+
+            }, false);
 
 
 function createMessage(message, time){
@@ -78,12 +95,22 @@ function createNotification() {
     //
     //setup notification
     //
-	window.plugin.notification.local.schedule({ 
-    	id: 		1,
-        title: 		"Hey you",
-        message: 	"This is an example notification",
-        date: 		notificationTime, 
-        badge: 		notification_count++
+// REMOVED as window.plugin not working - depreciated in Cordova 3.0?? 
+//	window.plugin.notification.local.schedule({ 
+//    	id: 		1,
+//        title: 		"Hey you",
+//        message: 	"This is an example notification",
+//        date: 		notificationTime, 
+//        badge: 		notification_count++
+//   	});
+
+    // Successful way to access plugin
+    cordova.plugins.notification.local.schedule({ 
+    	id: 42,
+        title: 'Scheduled with delay',
+        text: 'Test Message 1',
+        at: notificationTime,
+        badge: 13
    	});
     
 }

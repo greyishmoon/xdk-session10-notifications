@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-project-lite/sample.zip",
       "projectGuid": "46f91373-2d0a-4d76-8e1a-3647edc07206",
-      "lastModifiedDate": 1480781118000,
+      "lastModifiedDate": 1480785940659,
       "creationDate": 1480776770494
     },
     "XDK-app-designer": "false",
@@ -50,15 +50,18 @@
         "data": {},
         "paramvals": {},
         "dependsOn": [],
-        "dependedBy": [],
+        "dependedBy": [
+          "de.appplant.cordova.plugin.local-notification"
+        ],
         "originType": "cordova.io",
         "origin": "cordova-plugin-device",
         "permissions": {},
-        "topLevel": true,
+        "topLevel": false,
         "gitref": "",
         "name": "Device",
         "description": "Cordova Device Plugin",
-        "checksum": "2373ccea"
+        "checksum": "2373ccea",
+        "cordovaVersion": ">=3.6.0"
       },
       {
         "id": "cordova-plugin-splashscreen",
@@ -75,7 +78,8 @@
         "gitref": "",
         "name": "Splashscreen",
         "description": "Cordova Splashscreen Plugin",
-        "checksum": "47137083"
+        "checksum": "47137083",
+        "cordovaVersion": ">=3.6.0"
       },
       {
         "id": "cordova-plugin-dialogs",
@@ -90,8 +94,60 @@
         "checksum": "2948bc11",
         "dependsOn": [],
         "topLevel": true,
+        "cordovaVersion": ">=3.6.0",
         "permissions": {},
         "description": "Cordova Notification Plugin",
+        "data": {},
+        "dependedBy": []
+      },
+      {
+        "id": "cordova-plugin-app-event",
+        "name": "Application Events",
+        "version": "1.2.0",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-app-event",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-app-event",
+        "selectedState": "Included",
+        "checksum": "5f6ce43e",
+        "dependsOn": [],
+        "topLevel": false,
+        "cordovaVersion": ">=3.6.0",
+        "author": "Sebastián Katzer",
+        "permissions": {},
+        "description": "Broadcasts various events to make them available for 3rd parties",
+        "data": {},
+        "dependedBy": [
+          "de.appplant.cordova.plugin.local-notification"
+        ],
+        "custom": "true"
+      },
+      {
+        "id": "de.appplant.cordova.plugin.local-notification",
+        "name": "LocalNotification",
+        "version": "0.8.4",
+        "originType": "cordova.io",
+        "origin": "de.appplant.cordova.plugin.local-notification",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/de.appplant.cordova.plugin.local-notification",
+        "selectedState": "Included",
+        "checksum": "9f3812e4",
+        "dependsOn": [
+          "cordova-plugin-device",
+          "cordova-plugin-app-event"
+        ],
+        "topLevel": true,
+        "cordovaVersion": ">=3.6.0",
+        "author": "Sebastián Katzer",
+        "permissions": {
+          "android:name": [
+            "android.permission.RECEIVE_BOOT_COMPLETED",
+            "android.permission.WRITE_EXTERNAL_STORAGE"
+          ]
+        },
+        "description": "The plugin supports scheduling local notifications in various ways with a single interface. It also allows you to update, clear or cancel them. There are different interfaces to query for local notifications and a complete set of events to hook into the life cycle of local notifications. To get a deep overview we recommend to read about all the topics in our wiki and try out the Kitchen Sink App",
         "data": {},
         "dependedBy": []
       }
@@ -109,7 +165,7 @@
         },
         "isActive_": true,
         "certificateId_": "jmCQNcErUkOCV-jSBlbhRw2",
-        "appName_": "xdk-session10-notifications",
+        "appName_": "Notifications",
         "appID_": "xdk.intel.cordova.template.lite",
         "appAccess_": {
           "mode": "whitelist",
@@ -147,7 +203,7 @@
           "ios-configuration": "adhoc",
           "deployment-target": "8.0"
         },
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appName_": "xdk-session10-notifications",
         "appID_": "xdk.intel.cordova.template.lite",
@@ -188,7 +244,7 @@
           "windows-publisher-display-name": "",
           "windows-publisher-id": ""
         },
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appName_": "xdk-session10-notifications",
         "appID_": "xdk.intel.cordova.template.lite",
