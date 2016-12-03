@@ -3,8 +3,12 @@ function onAppReady() {
         navigator.splashscreen.hide() ;
     }
     
-    $('#messageButton').on('click', function() {
-		createMessage();
+    $('#messageButton1').on('click', function() {
+		createMessage('Hello there!!!', 4000);
+	});
+    
+    $('#messageButton2').on('click', function() {
+		createMessage('Did I show???', 2000);
 	});
 	
 	$('#dialogButton').on('click', function() {
@@ -20,10 +24,11 @@ function onAppReady() {
 document.addEventListener("app.Ready", onAppReady, false) ;
 
 
-function createMessage(){
+function createMessage(message, time){
 	//phoneGap and jQueryMobile do not support toast messages directly
     //so we can add this using toast.js
-    new Toast({content: 'An example message.', duration: 1000}); 	
+    //new Toast({content: 'Hello there!!!!', duration: 4000}); 	
+    new Toast({content: message, duration: time}); 
 }
         	
 
