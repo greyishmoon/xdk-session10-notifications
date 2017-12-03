@@ -20,6 +20,8 @@ function onAppReady() {
 		createNotification();
 	});
     
+    alert("RUNNING");
+    
 }
 document.addEventListener("app.Ready", onAppReady, false) ;
 
